@@ -1,0 +1,216 @@
+@use './variables';
+
+@mixin button-style($bg-color) {
+    width: 439px;
+    height: 76px;
+    border: none;
+    border-radius: 8px;
+    color: variables.$tx-white;
+    cursor: pointer;
+    font-size: 28px;
+    font-family: variables.$font-in;
+    font-weight: 600;
+    background-color: $bg-color;
+    transition: 0.2s;
+}
+
+
+
+@mixin toast($bg-color) {
+    width: 100%;
+    max-width: 439px;
+    height: 76px;
+    background-color: variables.$tx-white;
+    border-radius: 8px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.2s;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $bg-color;
+        animation: progressBar 4s linear forwards;
+    }
+
+
+}
+
+
+
+@keyframes progressBar {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+.toast-out {
+    animation: toastOut 0.3s linear forwards;
+
+}
+
+.toast-in {
+    animation: toastIn 0.3s linear forwards;
+}
+
+
+body {
+    background-color: variables.$bg-body;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+
+    .card {
+        background-color: variables.$tx-white;
+        width: 100%;
+        max-width: 512px;
+        height: 505px;
+        border-radius: 8px;
+        margin: 259px 418px 260px 510px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        .b-primary {
+            @include button-style(variables.$bg-blue);
+            margin: 0px 36px 34px;
+        }
+
+        .b-success {
+            @include button-style(variables.$bg-green);
+            margin: 49px 36px 34px;
+        }
+
+        .b-danger {
+            @include button-style(variables.$bg-red);
+            margin: 0px 36px 49px;
+        }
+
+        .b-warning {
+            @include button-style(variables.$bg-orange);
+            margin: 0px 36px 34px;
+        }
+
+
+    }
+
+    .toastContainer {
+
+        position: fixed;
+        top: 26px;
+        left: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        z-index: 999;
+    }
+
+
+
+    .toast-success {
+        @include toast(variables.$bg-green);
+    }
+
+    .toast-error {
+        @include toast(variables.$bg-red);
+    }
+
+    .toast-warn {
+        @include toast(variables.$bg-orange);
+    }
+
+    .toast-info {
+        @include toast(variables.$bg-blue);
+    }
+
+    .close-btn {
+
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 15px;
+            height: 15px;
+            margin: 30px 15px;
+        }
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    body {
+        .card {
+            .btn {
+                width: 175px;
+            }
+        }
+
+        .toastContainer {
+            .toast {
+                width: 175px;
+
+                .toast-icon {
+                    width: 160px;
+                }
+
+                .close-btn {
+                    img {
+                        width: 10px;
+                        height: 10px;
+                        margin: 12px 5px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+@keyframes toastIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+@keyframes toastOut {
+
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+}

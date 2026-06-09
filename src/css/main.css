@@ -1,0 +1,248 @@
+@keyframes progressBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+.toast-out {
+  animation: toastOut 0.3s linear forwards;
+}
+
+.toast-in {
+  animation: toastIn 0.3s linear forwards;
+}
+
+body {
+  background-color: #F0F3FB;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+body .card {
+  background-color: white;
+  width: 100%;
+  max-width: 512px;
+  height: 505px;
+  border-radius: 8px;
+  margin: 259px 418px 260px 510px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .card .b-primary {
+  width: 439px;
+  height: 76px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  font-family: "inter", serif;
+  font-weight: 600;
+  background-color: #3B82F6;
+  transition: 0.2s;
+  margin: 0px 36px 34px;
+}
+body .card .b-success {
+  width: 439px;
+  height: 76px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  font-family: "inter", serif;
+  font-weight: 600;
+  background-color: #22C55E;
+  transition: 0.2s;
+  margin: 49px 36px 34px;
+}
+body .card .b-danger {
+  width: 439px;
+  height: 76px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  font-family: "inter", serif;
+  font-weight: 600;
+  background-color: #EF4444;
+  transition: 0.2s;
+  margin: 0px 36px 49px;
+}
+body .card .b-warning {
+  width: 439px;
+  height: 76px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  font-family: "inter", serif;
+  font-weight: 600;
+  background-color: #F97316;
+  transition: 0.2s;
+  margin: 0px 36px 34px;
+}
+body .toastContainer {
+  position: fixed;
+  top: 26px;
+  left: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 999;
+}
+body .toast-success {
+  width: 100%;
+  max-width: 439px;
+  height: 76px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+body .toast-success::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #22C55E;
+  animation: progressBar 4s linear forwards;
+}
+body .toast-error {
+  width: 100%;
+  max-width: 439px;
+  height: 76px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+body .toast-error::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #EF4444;
+  animation: progressBar 4s linear forwards;
+}
+body .toast-warn {
+  width: 100%;
+  max-width: 439px;
+  height: 76px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+body .toast-warn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #F97316;
+  animation: progressBar 4s linear forwards;
+}
+body .toast-info {
+  width: 100%;
+  max-width: 439px;
+  height: 76px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+body .toast-info::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #3B82F6;
+  animation: progressBar 4s linear forwards;
+}
+body .close-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .close-btn img {
+  width: 15px;
+  height: 15px;
+  margin: 30px 15px;
+}
+
+@media (max-width: 576px) {
+  body .card .btn {
+    width: 175px;
+  }
+  body .toastContainer .toast {
+    width: 175px;
+  }
+  body .toastContainer .toast .toast-icon {
+    width: 160px;
+  }
+  body .toastContainer .toast .close-btn img {
+    width: 10px;
+    height: 10px;
+    margin: 12px 5px;
+  }
+}
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes toastOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}/*# sourceMappingURL=main.css.map */
