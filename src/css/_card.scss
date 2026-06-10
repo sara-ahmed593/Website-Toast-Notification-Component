@@ -5,10 +5,10 @@
     height: 76px;
     border: none;
     border-radius: 8px;
-    color: variables.$tx-white;
+    color: variables.$text-white;
     cursor: pointer;
     font-size: 28px;
-    font-family: variables.$font-in;
+    font-family: variables.$font-main;
     font-weight: 600;
     background-color: $bg-color;
     transition: 0.2s;
@@ -20,7 +20,7 @@
     width: 100%;
     max-width: 439px;
     height: 76px;
-    background-color: variables.$tx-white;
+    background-color: variables.$text-white;
     border-radius: 8px;
     padding: 5px 15px;
     display: flex;
@@ -30,18 +30,18 @@
     transition: 0.2s;
     position: relative;
     overflow: hidden;
+  
+   
+    
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $bg-color;
 
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: $bg-color;
-        animation: progressBar 4s linear forwards;
-    }
-
+}
 
 }
 
@@ -74,7 +74,7 @@ body {
     min-height: 100vh;
 
     .card {
-        background-color: variables.$tx-white;
+        background-color: variables.$text-white;
         width: 100%;
         max-width: 512px;
         height: 505px;
@@ -86,22 +86,22 @@ body {
 
 
         .b-primary {
-            @include button-style(variables.$bg-blue);
+            @include button-style(variables.$bg-primary);
             margin: 0px 36px 34px;
         }
 
         .b-success {
-            @include button-style(variables.$bg-green);
+            @include button-style(variables.$bg-success);
             margin: 49px 36px 34px;
         }
 
         .b-danger {
-            @include button-style(variables.$bg-red);
+            @include button-style(variables.$bg-danger);
             margin: 0px 36px 49px;
         }
 
         .b-warning {
-            @include button-style(variables.$bg-orange);
+            @include button-style(variables.$bg-Warning);
             margin: 0px 36px 34px;
         }
 
@@ -112,29 +112,32 @@ body {
 
         position: fixed;
         top: 26px;
-        left: 36px;
+        right: 36px;
         display: flex;
         flex-direction: column;
         gap: 16px;
-        z-index: 999;
+        z-index: 9999;
+
+        
     }
 
 
 
     .toast-success {
-        @include toast(variables.$bg-green);
+        @include toast(variables.$bg-success);
+       
     }
 
     .toast-error {
-        @include toast(variables.$bg-red);
+        @include toast(variables.$bg-danger);
     }
 
     .toast-warn {
-        @include toast(variables.$bg-orange);
+        @include toast(variables.$bg-Warning);
     }
 
     .toast-info {
-        @include toast(variables.$bg-blue);
+        @include toast(variables.$bg-primary);
     }
 
     .close-btn {
@@ -149,7 +152,7 @@ body {
         img {
             width: 15px;
             height: 15px;
-            margin: 30px 15px;
+             margin: 30px 15px;
         }
     }
 
@@ -191,7 +194,7 @@ body {
 
     from {
         opacity: 0;
-        transform: translateX(-30px);
+        transform: translateX(30px);
     }
 
     to {
@@ -211,6 +214,7 @@ body {
 
     to {
         opacity: 0;
-        transform: translateX(-30px);
+        transform: translateX(30px);
     }
 }
+
