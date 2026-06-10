@@ -1,7 +1,5 @@
-const successButton = document.querySelector('.b-success');
-const infoButton = document.querySelector('.b-primary');
-const warningButton = document.querySelector('.b-warning');
-const errorButton = document.querySelector('.b-danger');
+
+
 const messageContainer = document.querySelector('.toastContainer');
 const actionButtons = document.querySelectorAll('.btn');
 
@@ -10,6 +8,7 @@ const actionButtons = document.querySelectorAll('.btn');
  *
  * @param {string} (message) HTML string that contains toast content 
  */
+
 const showToast = (message) => {
 
     const toast = document.createElement('div')
@@ -18,7 +17,8 @@ const showToast = (message) => {
 /**
  * Handles message on toast notification and generates correct toast type.
  */
-    if (message.includes('success')) {
+
+       if (message.includes('success')) {
 
         toast.classList.add('toast-success');
 
@@ -35,36 +35,26 @@ const showToast = (message) => {
         toast.classList.add('toast-info');
 
     }
-toast.innerHTML = message    
-
-
+toast.innerHTML = message 
     messageContainer.prepend(toast)
+
+
+     
+  let startTime = Date.now();
+ let duration = 4000;
+ let remaining =duration
 
 let timer = setTimeout(() => {
         hideToast(toast);
 
-
-    }, 4000);
-
-/**
- * close toast by button click.
- */
-    
-    const closeBtn = toast.querySelector(".close-btn");
-
-    closeBtn.addEventListener("click", (e) => {
-        hideToast(toast)
-    }
-    );
-
-
+    }, duration);
+   
 /**
  * Handles progress bar animation, timer on toast notification .
  */
+
     
-  let startTime = Date.now();
- let duration = 4000;
- let remaining =0
+
     const progress = toast.querySelector('.progress-bar')
      progress.style.animation = `progressBar ${duration}ms linear forwards`;
 
@@ -72,14 +62,14 @@ let timer = setTimeout(() => {
       toast.addEventListener('mouseenter', ()=>{
  progress.style.animationPlayState = 'paused' ;
      clearTimeout(timer);
-   remaining += duration - (Date.now()- startTime)
+    remaining = remaining - (Date.now() - startTime);
 
       });
 
 
   toast.addEventListener('mouseleave', () => { 
      progress.style.animationPlayState  = 'running' ;
-
+ startTime = Date.now()
     timer = setTimeout(() => {
         hideToast(toast);
     }, remaining);
@@ -87,28 +77,21 @@ let timer = setTimeout(() => {
 
   });
 
-
-}
-
 /**
- * Removes toast from DOM with exit animation.
- *
-  The toast element that will be removed
+ * close toast by button click.
  */
+    
+  const closeBtn = toast.querySelector(".close-btn");
 
-function hideToast(toast) {
-    toast.classList.remove("toast-in");
-    toast.classList.add("toast-out");
-
-    toast.addEventListener("animationend", () => {
-        toast.remove();
-    });
+    closeBtn.addEventListener("click", (e) => {
+        hideToast(toast)
+    }
+    );
 }
-
-
 /**
  * Handles click events on toast buttons and generates correct toast type.
  */
+
 for (let i = 0; i < actionButtons.length; i++) {
     actionButtons[i].addEventListener('click', () => {
 
@@ -137,3 +120,19 @@ let img = "";
         `);
     });
 }
+
+/**
+ * Removes toast from DOM with exit animation.
+ *
+  The toast element that will be removed
+ */
+
+function hideToast(toast) {
+    toast.classList.remove("toast-in");
+    toast.classList.add("toast-out");
+
+    toast.addEventListener("animationend", () => {
+        toast.remove();
+    });
+}
+

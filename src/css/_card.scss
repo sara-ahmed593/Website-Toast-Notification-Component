@@ -1,4 +1,5 @@
-@use './variables';
+@use'./variables';
+
 
 @mixin button-style($bg-color) {
     width: 439px;
@@ -12,11 +13,9 @@
     font-weight: 600;
     background-color: $bg-color;
     transition: 0.2s;
+
 }
-
-
-
-@mixin toast($bg-color) {
+ @mixin toast($bg-color) {
     width: 100%;
     max-width: 439px;
     height: 76px;
@@ -31,8 +30,8 @@
     position: relative;
     overflow: hidden;
   
-   
-    
+
+        
 .progress-bar {
     position: absolute;
     bottom: 0;
@@ -42,29 +41,9 @@
     background-color: $bg-color;
 
 }
-
 }
 
 
-
-@keyframes progressBar {
-    from {
-        width: 100%;
-    }
-
-    to {
-        width: 0%;
-    }
-}
-
-.toast-out {
-    animation: toastOut 0.3s linear forwards;
-
-}
-
-.toast-in {
-    animation: toastIn 0.3s linear forwards;
-}
 
 
 body {
@@ -83,6 +62,8 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+      
 
 
         .b-primary {
@@ -105,10 +86,10 @@ body {
             margin: 0px 36px 34px;
         }
 
-
     }
 
-    .toastContainer {
+
+      .toastContainer {
 
         position: fixed;
         top: 26px;
@@ -118,12 +99,8 @@ body {
         gap: 16px;
         z-index: 9999;
 
-        
-    }
 
-
-
-    .toast-success {
+     .toast-success {
         @include toast(variables.$bg-success);
        
     }
@@ -140,7 +117,7 @@ body {
         @include toast(variables.$bg-primary);
     }
 
-    .close-btn {
+.close-btn {
 
         border: none;
         background: transparent;
@@ -155,8 +132,59 @@ body {
              margin: 30px 15px;
         }
     }
+        
+    }
+}
+
+
+@keyframes toastIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+@keyframes toastOut {
+
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes progressBar {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+
+.toast-out {
+    animation: toastOut 0.3s linear forwards;
 
 }
+
+.toast-in {
+    animation: toastIn 0.3s linear forwards;
+}
+
 
 
 @media (max-width: 576px) {
@@ -188,33 +216,3 @@ body {
     }
 
 }
-
-
-@keyframes toastIn {
-
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-
-
-@keyframes toastOut {
-
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    to {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-}
-
