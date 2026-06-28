@@ -10,16 +10,22 @@ WEBSITE...
     │   ├── _card.scss
     │   ├── _variables.scss
     │   ├── main.css
-    │   ├── main.css.map
-    │   └── main.scss
-    ├── img/
-    │   ├── error.png
-    │   ├── info.png
-    │   ├── Path.png
-    │   ├── success.png
-    │   └── warning.png
+    │   │
+    │   └── dist/
+    │        ├── main.css.map
+    │        └── main.scss
+    │
+    ├── assets/
+    │     ├── img/
+    │     ├── error.svg
+    │     ├── info.svg
+    │     ├── Path.svg
+    │     ├── success.svg
+    │     └── warning.svg
+    │
     ├── js/
     │   └── script.js
+    │
     ├── demo2.gif
     ├── index.html
     ├── README.md
@@ -62,5 +68,5 @@ It supports different notification types, smooth animations.
 
 ## Screenshot
 
-![Project Screenshot](https://github.com/sara-ahmed593/Website-For--Feedback-Modal-Component/blob/6bc75423f7aca873e935b390a900042b610faed9/Screenshot%20.png)
+![Project Screenshot]
 

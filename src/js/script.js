@@ -9,35 +9,20 @@ const actionButtons = document.querySelectorAll('.btn');
  * @param {string} (message) HTML string that contains toast content 
  */
 
-const showToast = (message) => {
+const showToast = (message, name) => {
 
     const toast = document.createElement('div')
-    toast.classList.add('toast', 'toast-in')
+    toast.classList.add('toast', 'toast-in', name)
 
     /**
      * Handles message on toast notification and generates correct toast type.
      */
 
-
-    switch (true) {
-        case message.includes('success'):
-            toast.classList.add('toast-success');
-            break;
-
-        case message.includes('error'):
-            toast.classList.add('toast-error');
-            break;
-
-        case message.includes('warning'):
-            toast.classList.add('toast-warn');
-            break;
-
-        case message.includes('info'):
-            toast.classList.add('toast-info');
-            break;
-    }
     toast.innerHTML = message
     messageContainer.prepend(toast)
+
+
+
 
 
 
@@ -97,38 +82,28 @@ const showToast = (message) => {
 
 for (let i = 0; i < actionButtons.length; i++) {
     actionButtons[i].addEventListener('click', () => {
-
+        console.log(actionButtons[i].textContent);
+        let toastData = buttonToastMap[actionButtons[i].textContent.toLowerCase()];
 
         let img = "";
-
-        switch (true) {
-            case actionButtons[i].classList.contains('b-success'):
-                img = "./assets/img/success.svg";
-                break;
-
-            case actionButtons[i].classList.contains('b-primary'):
-                img = "./assets/img/info.svg";
-                break;
-
-            case actionButtons[i].classList.contains('b-warning'):
-                img = "./assets/img/warning.svg";
-                break;
-
-            case actionButtons[i].classList.contains('b-danger'):
-                img = "./assets/img/error.svg";
-                break;
-        }
+        img = toastData.icon
+        let classname
+        classname = toastData.className
 
         showToast(`
             <img class="toast-icon" src="${img}" alt="toast">
             <button class="close-btn">
-                <img src="assets/img/Path.svg" alt="close-icon">
+                <img src="./src/assets/img/Path.svg" alt="close-icon">
             </button>
                 <div class="progress-bar"></div>
 
-        `);
+        `, classname);
     });
 }
+
+
+
+
 
 /**
  * Removes toast from DOM with exit animation.
@@ -145,3 +120,23 @@ function hideToast(toast) {
     });
 }
 
+
+
+const buttonToastMap = {
+    "success": {
+        className: "toast-success",
+        icon: "./src/assets/img/success.svg"
+    },
+    "info": {
+        className: "toast-info",
+        icon: "./src/assets/img/info.svg"
+    },
+    "warning": {
+        className: "toast-warn",
+        icon: "./src/assets/img/warning.svg"
+    },
+    "error": {
+        className: "toast-error",
+        icon: "./src/assets/img/error.svg"
+    }
+};
