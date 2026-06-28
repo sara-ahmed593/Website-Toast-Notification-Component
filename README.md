@@ -62,11 +62,9 @@ It supports different notification types, smooth animations.
 
 ## video Demo 
 
-![Project Demo](D:\Website-Form-Feedback-Modal-Component-main\demo1-ezgif.com-video-to-gif-converter.gif
-     
-)
+![Project Demo](https://github.com/sara-ahmed593/Website-Toast-Notification-Component/blob/d802deaacc67895373b48a35725e4025a051f073/demo2.gif)
 
 ## Screenshot
 
-![Project Screenshot]
+![Project Screenshot](https://github.com/sara-ahmed593/Website-Toast-Notification-Component/blob/d802deaacc67895373b48a35725e4025a051f073/screenshot.png)
 
